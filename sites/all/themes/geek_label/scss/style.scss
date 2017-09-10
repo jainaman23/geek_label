@@ -1,0 +1,108 @@
+/// Base Scss
+///
+/// Including Variables
+@import 'partials/importer';
+
+html, body, h1, h2, h3, h4, h5, h6, aside, section, ul, li, a {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+html {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
+
+header {
+  // position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: $base-color;
+}
+
+.main-container {
+  background-color: $background-color;
+
+  .region-content {
+    & > section {
+
+      .entity {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+#block-bean-man-block-1 {
+  @include display-flex;
+  text-align: center;
+
+  .field-name-field-bean-description {
+    font-size: $font-size-48;
+
+    span {
+      color: $base-color;
+    }
+  }
+
+  .field-type-image {
+    width: 65%;
+    margin: 0 auto;
+  }
+
+  .content {
+    .field {
+      padding: 40px 0;
+    }
+  }
+}
+
+#block-bean-man-block-2 {
+ @extend #block-bean-man-block-1;
+}
+
+#block-bean-man-block-3 {
+ @extend #block-bean-man-block-1;
+}
+
+
+#block-bean-services {
+  .field-name-field-multi-images {
+    .field-items {
+      @include display-flex;
+    }
+  }
+}
+
+section {
+  .field-collection-container {
+    margin-bottom: 0 ;
+    border-bottom: none;
+
+    .field-items {
+      .field-item {
+        margin-bottom: 0;
+      }
+
+      .field-collection-view  {
+        padding: 0;
+        margin: 0;
+        border-bottom: none;
+      }
+    }
+  }
+}
