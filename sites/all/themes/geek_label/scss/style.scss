@@ -412,13 +412,13 @@
   }
 }
 
-@media screen and (max-width: 767px) and (orientation:landscape) {
+@media screen and (max-width: 767px) and (orientation: landscape) {
   html {
     height: 100% !important;
 
   }
   body {
-    background: url("../images/image.jpg") center center no-repeat;
+    background: url("/sites/all/themes/geek_label/images/image.jpg") center center no-repeat;
     position: absolute !important;
     left: 0;
     right: 0;
