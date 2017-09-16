@@ -1,4 +1,4 @@
-<?php
+  <?php
 /**
  * @file
  * Default theme implementation to display a single Drupal page.
@@ -74,18 +74,24 @@
  */
 ?>
 
-<header role="banner" id="page-header">
-  <?php if ($logo): ?>
-    <div class="wrapper">
-      <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-    </div>
-  <?php endif; ?>
 
-  <?php if (!empty($site_slogan)): ?>
-    <p class="lead"><?php print $site_slogan; ?></p>
-  <?php endif; ?>
-  <?php print render($page['header']); ?>
-</header>
+<section class="fullpage">
+  <section role="banner" class= 'section' id="page-header">
+    <?php if ($logo): ?>
+      <div class="wrapper">
+        <div class="img-slogan">
+          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+          <?php if (!empty($site_slogan)): ?>
+            <p class="lead"><?php print $site_slogan; ?></p>
+          <?php endif; ?>
+          <?php print render($page['header']); ?>
+        </div>
+      </div>
+    <?php endif; ?>
+
+  </section>
+  <?php print render($page['content']); ?>
+</section>
 
 <div class="main-container <?php print $container_class; ?>">
   <div class="row">
@@ -116,7 +122,6 @@
       <?php if (!empty($action_links)): ?>
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
-      <?php print render($page['content']); ?>
     </section>
 
     <?php if (!empty($page['sidebar_second'])): ?>

@@ -3,56 +3,109 @@
 /// Including Variables
 @import 'partials/importer';
 
-html, body, h1, h2, h3, h4, h5, h6, aside, section, ul, li, a {
-  margin: 0;
-  padding: 0;
+.display-flex {
+  @include display-flex;
+  @include align-items(center);
 }
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-}
+.scroll-down {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: $base-color;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 15px;
+  @include border-radius(50%);
+  @include box-shadow(0 4px 12px 0px rgba(0,0,0,0.1));
+  border: 3px solid #fff;
 
-html {
-  font-size: 16px;
-}
-
-a {
-  text-decoration: none;
-
-  &:hover, &:focus {
-    text-decoration: underline;
+  &:after {
+    content: '\f107';
+    font-family: 'FontAwesome';
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    left: 0px;
+    font-size: $font-size-34;
+    right: 0;
+    bottom: 0;
+    text-align: center;
   }
 }
 
-header {
-  // position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+#page-header {
   background-color: $base-color;
+
+  .wrapper {
+    @extend .display-flex;
+
+    .img-slogan {
+      margin: 0 auto;
+      text-align: center;
+      width: 80%;
+
+      img {
+        @media all and (max-width: $xs) {
+          width: 100%;
+          padding: 20px 0;
+        }
+      }
+
+      p {
+        color: $white;
+        margin: 0 auto;
+        font-size: $font-size-22;
+        padding: 50px 0;
+
+        @media all and (min-width: $md + 1) {
+          width: 55%;
+        }
+
+        @media all and (min-width: $sm + 1) and (max-width: $md) {
+          width: 75%;
+        }
+      }
+    }
+  }
+
+  .scroll-down {
+    background-color: transparent;
+  }
 }
 
-.main-container {
-  background-color: $background-color;
+.block-content {
+  width: 80%;
+  margin: 0 auto;
 
-  .region-content {
-    & > section {
+  .entity-bean.bean-highlight {
+    @extend .display-flex;
 
-      .entity {
-        margin: 0 auto;
-      }
+    .content {
+      margin: 0 auto;
     }
   }
 }
 
 #block-bean-man-block-1 {
-  @include display-flex;
+  background-color: $background-color;
   text-align: center;
 
   .field-name-field-bean-description {
-    font-size: $font-size-48;
+    font-size: $font-size-30;
+    padding: 30px 0;
+
+    @media all and (max-width: $xs) {
+      margin-bottom: 0;
+      font-size: 7vw !important;
+
+      p {
+        line-height: $font-size-32;
+      }
+    }
 
     span {
       color: $base-color;
@@ -60,13 +113,12 @@ header {
   }
 
   .field-type-image {
-    width: 65%;
+    width: 60%;
     margin: 0 auto;
-  }
 
-  .content {
-    .field {
-      padding: 40px 0;
+    @media all and (max-width: $xs) {
+      width: 90%;
+      padding-bottom: 30px;
     }
   }
 }
@@ -80,29 +132,299 @@ header {
 }
 
 
-#block-bean-services {
-  .field-name-field-multi-images {
-    .field-items {
-      @include display-flex;
+/// Services Section
+#block-bean-clients, #block-bean-services {
+  background-color: $background-color;
+
+  .fp-tableCell {
+    vertical-align: top;
+  }
+
+  .block-title {
+    font-size: 70px;
+    display: block;
+    text-align: center;
+    padding: 5% 0;
+    margin: 0;
+
+    @media all and (max-width: $xs) {
+      font-size: 10vw;
+    }
+  }
+
+  .scroll-down {
+    background-color: transparent;
+    border-color: #000;
+    @include box-shadow(none);
+
+    &:after {
+      color: #000;
     }
   }
 }
 
-section {
-  .field-collection-container {
-    margin-bottom: 0 ;
-    border-bottom: none;
+#block-bean-services {
+  background-color: $white;
 
-    .field-items {
-      .field-item {
-        margin-bottom: 0;
-      }
+  .block-content {
+    padding: 0;
+    margin: 0 auto;
 
-      .field-collection-view  {
-        padding: 0;
-        margin: 0;
-        border-bottom: none;
+    @media all and (max-width: $xs) {
+      font-size: 10vw;
+    }
+
+    @media all and (min-width: $sm) {
+      @include display-flex;
+      @include align-items(center);
+      height: 50%;
+    }
+  }
+
+  .entity {
+    width: 100%;
+
+    .content {
+      margin: 0 auto;
+      text-align: center;
+
+      @media all and (max-width: $sm) {
+        display: table;
+        padding: 15px 0;
       }
     }
+  }
+
+  .field-name-field-multi-images {
+    margin: 0 auto;
+
+    & > .field-items {
+      & > .field-item {
+        @media all and (min-width: $sm + 1) {
+          float: left;
+          width: 25%;
+        }
+      }
+
+      .field-name-field-fc-image {
+        background-color: $base-color;
+        @include border-radius(50%);
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        position: relative;
+
+        @media all and (max-width: $lg) {
+          display: inline-block;
+          vertical-align: middle;
+          width: 150px;
+          height: 150px;
+        }
+
+        @media all and (max-width: $md) {
+          display: inline-block;
+          vertical-align: middle;
+          width: 100px;
+          height: 100px;
+        }
+
+        @media all and (max-width: $sm) {
+          display: table-cell;
+          vertical-align: middle;
+          width: 16vw;
+          height: 16vw;
+        }
+
+        @media all and (max-width: $xs) {
+          font-size: 10vw;
+        }
+
+        & > .field-items {
+          margin: 0 auto;
+
+          img {
+            margin: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+
+            @media all and (max-width: $lg) {
+              width: 75px;
+            }
+
+            @media all and (max-width: $md) {
+              width: 50px;
+            }
+
+            @media all and (max-width: $xs) {
+              width: 10vw;
+            }
+          }
+        }
+      }
+
+      .field-name-field-fc-caption {
+        text-align: center;
+
+        @media all and (max-width: $sm) {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        p {
+          margin-bottom: 0;
+          margin: auto;
+          padding: 40px 0px 0;
+          font-size: $font-size-23;
+
+          @media all and (max-width: $md) {
+            padding: 0;
+            padding-top: 30px;
+            font-size: $font-size-18;
+          }
+
+          @media all and (max-width: $sm) {
+            padding-left: 30px;
+            font-size: $font-size-20;
+            text-align: left;
+            padding-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.block-contact-form-blocks {
+  .block-title {
+    font-size: 70px;
+    display: block;
+    padding: 40px 0;
+    text-align: center;
+    margin: 0;
+
+    @media all and (max-width: $xs) {
+      font-size: 10vw;
+      padding: 5% 0;
+    }
+  }
+
+  .block-content {
+    padding: 0px 0 60px;
+    max-width: 500px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  input, textarea {
+    background-color: rgb(251,251,251);
+    border: 2px solid rgb(204,204,204);
+    margin: 0;
+    width: 100% !important;
+    height: 45px;
+    font-size: $font-size-20;
+  }
+
+  .grippie {
+    display: none;
+  }
+
+  .form-submit {
+    background-color: $base-color;
+    width: 100%;
+    color: $white;
+    padding: 12px;
+    font-size: $font-size-18;
+    text-transform: capitalize;
+  }
+
+  .details {
+    text-align: center;
+
+    .phone, .email {
+      color: rgb(65, 64, 66);
+      font-size: $font-size-18;
+      text-align: center;
+
+      p {
+        position: relative;
+        display: inline-block;
+
+        &:before {
+          color: rgb(65, 64, 66);
+          font-family: 'FontAwesome';
+          position: absolute;
+          top: 0;
+          left: -25px;
+        }
+      }
+    }
+
+    .phone {
+      p {
+        &:before {
+          content: "\f095";
+        }
+      }
+    }
+
+    .email {
+      p {
+        &:before {
+          content: "\f003";
+        }
+      }
+    }
+  }
+}
+
+.slick-dots {
+  bottom: -40px;
+
+  li {
+    width: 20px;
+    margin: 0;
+
+    button {
+      &:before {
+        font-size: $font-size-12;
+        // color: $slick-dots;
+      }
+    }
+
+    &.slick-active {
+      button {
+        &:before {
+          color: $base-color;
+        }
+      }
+    }
+  }
+}
+
+#block-bean-clients {
+  img {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 767px) and (orientation:landscape) {
+  html {
+    height: 100% !important;
+
+  }
+  body {
+    background: url("../images/image.jpg") center center no-repeat;
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+    background-size: cover;
   }
 }

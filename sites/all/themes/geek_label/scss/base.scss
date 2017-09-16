@@ -1,0 +1,53 @@
+/// Base Scss
+///
+/// Including Variables
+@import 'partials/importer';
+
+* {
+  outline: none !important;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, aside, section, ul, li, a {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+html {
+  font-size: 16px !important;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
+
+/// Overriding Defaults
+section {
+  position: relative;
+  display: none;
+
+  .field-collection-container {
+    margin-bottom: 0 ;
+    border-bottom: none;
+
+    .field-items {
+      .field-item {
+        margin-bottom: 0;
+      }
+
+      .field-collection-view  {
+        padding: 0;
+        margin: 0;
+        border-bottom: none;
+      }
+    }
+  }
+}
