@@ -33,6 +33,7 @@
         arrows: true,
         draggable: false,
         swipe: false,
+        autoplay: true,
         responsive: [
         {
           breakpoint: 1080,
