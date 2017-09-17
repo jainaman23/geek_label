@@ -10,11 +10,12 @@
       $(".fullpage").fullpage({
         // navigation: true,
         // navigationPosition: 'right',
-        // slidesNavigation: true,
+        slidesNavigation: true,
         // slidesNavPosition: 'top',
         scrollBar: true,
         sectionSelector: 'section',
         verticalCentered: true,
+        fitToSection: false,
         afterLoad: function(anchorLink, index){
           $(".scroll-down").on("click", function(e){
             var e = $.Event('keydown' );
@@ -30,6 +31,8 @@
         slidesToScroll: 1,
         dots: false,
         arrows: true,
+        draggable: false,
+        swipe: false,
         responsive: [
         {
           breakpoint: 1080,

@@ -410,21 +410,29 @@
   img {
     margin: 0 auto;
   }
+
+  .entity {
+    padding: 50px 0;
+
+    @media all and (max-width: $sm) {
+      padding: 20% 0;
+    }
+  }
 }
 
-@media screen and (max-width: 767px) and (orientation: landscape) {
+@media (max-width: 1024px) and (orientation: landscape) {
   html {
     height: 100% !important;
-
   }
-  body {
-    background: url("/sites/all/themes/geek_label/images/image.jpg") center center no-repeat;
-    position: absolute !important;
+
+  body.html {
+    background: url("/sites/all/themes/geek_label/images/newdesign.png") center center no-repeat !important;
+    position: fixed !important;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     display: none;
-    background-size: cover;
+    @include background-size(cover);
   }
 }
