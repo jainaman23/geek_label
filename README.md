@@ -1,3 +1,4 @@
+# Geek Label
 This project had lots of features and have been successfully developed. I have implemented my approach for both _front-end_ and _back-end_. I tried to show different approach for same problem wherever possible. This theme is using two fonts one is **“Open Sans”** and Other is **“Meuse”** Both of them are **not free available** so decided to use _“opensans”_ indeed, which is different from “Open Sans”. I know it will have some impact to overall design but i tried to make its look and feel same as design. I hope you will like it.
 
 # Front-End Approach
